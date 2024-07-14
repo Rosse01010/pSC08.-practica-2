@@ -1,5 +1,4 @@
-﻿
-namespace pSC08
+﻿namespace pSC08
 {
     partial class frmStarts
     {

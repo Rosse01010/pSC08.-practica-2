@@ -38,7 +38,7 @@ namespace pSC08
             this.lblDescuento = new System.Windows.Forms.Label();
             this.lblPrecioUnitario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblPrecio = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -143,17 +143,17 @@ namespace pSC08
             this.label2.Text = " Totales";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblTotal
+            // lblPrecio
             // 
-            this.lblTotal.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.Location = new System.Drawing.Point(1136, 616);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(240, 40);
-            this.lblTotal.TabIndex = 41;
-            this.lblTotal.Text = ".00";
-            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPrecio.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.ForeColor = System.Drawing.Color.White;
+            this.lblPrecio.Location = new System.Drawing.Point(1136, 616);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(240, 40);
+            this.lblPrecio.TabIndex = 41;
+            this.lblPrecio.Text = ".00";
+            this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
@@ -196,7 +196,7 @@ namespace pSC08
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPrecioUnitario);
             this.Controls.Add(this.lblDescuento);
@@ -226,7 +226,7 @@ namespace pSC08
         private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.Label lblPrecioUnitario;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label lblNombre;

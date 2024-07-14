@@ -82,9 +82,9 @@ namespace pSC08
             lblNombre.Text = "Nombre del Cliente";
 
             // Limpiar los Labels de totales
-            lblTotalPrecioUnit.Text = "Total Precio Unitario: 0";
-            lblTotalDescuento.Text = "Total Descuento: 0";
-            lblTotalPrecio.Text = "Total Precio: 0";
+            lblPrecioUnitario.Text = "Total Precio Unitario: 0";
+            lblDescuento.Text = "Total Descuento: 0";
+            lblPrecio.Text = "Total Precio: 0";
 
             // Reiniciar las variables de suma
             PrecioUnit = 0;
@@ -140,24 +140,38 @@ namespace pSC08
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                /*
+                    string query = @"
+                        SELECT 
+                            O.OrderID, 
+                            O.OrderDate, 
+                            OD.ProductID, 
+                            P.ProductName, 
+                            OD.Quantity, 
+                            OD.UnitPrice AS PrecioUnit, 
+                            OD.Discount AS Descuento, 
+                            (OD.Quantity * OD.UnitPrice * (1 - OD.Discount)) AS Precio
+                        FROM 
+                            Orders O
+                            INNER JOIN [Order Details] OD ON O.OrderID = OD.OrderID
+                            INNER JOIN Products P ON OD.ProductID = P.ProductID
+                        WHERE 
+                            O.CustomerID = @CustomerID
+                        ORDER BY 
+                            O.OrderDate DESC";
+                */
+
                 string query = @"
                     SELECT 
-                        O.OrderID, 
-                        O.OrderDate, 
-                        OD.ProductID, 
-                        P.ProductName, 
-                        OD.Quantity, 
-                        OD.UnitPrice AS PrecioUnit, 
-                        OD.Discount AS Descuento, 
-                        (OD.Quantity * OD.UnitPrice * (1 - OD.Discount)) AS Precio
-                    FROM 
-                        Orders O
-                        INNER JOIN [Order Details] OD ON O.OrderID = OD.OrderID
-                        INNER JOIN Products P ON OD.ProductID = P.ProductID
+		                    OrderID, OrderDate, ProductID, ProductName, Quantity, UnitPrice AS PrecioUnit, Discount AS Descuento, 
+		                    (Quantity * UnitPrice * (1 - Discount)) AS Precio
+                    FROM	
+		                    dbo.Invoices
                     WHERE 
-                        O.CustomerID = @CustomerID
+		                    CustomerID = @CustomerID
                     ORDER BY 
-                        O.OrderDate DESC";
+		                    OrderDate DESC
+                                ";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -211,9 +225,9 @@ namespace pSC08
                 Precio += Convert.ToDouble(row.Cells["Col07"].Value.ToString().Replace("$", ""));
             }
 
-            lblTotalPrecioUnit.Text = $"Total Precio Unitario: {PrecioUnit:C2}";
-            lblTotalDescuento.Text = $"Total Descuento: {Descuento:C2}";
-            lblTotalPrecio.Text = $"Total Precio: {Precio:C2}";
+            lblPrecioUnitario.Text = $"Total Precio Unitario: {PrecioUnit:C2}";
+            lblDescuento.Text = $"Total Descuento: {Descuento:C2}";
+            lblPrecio.Text = $"Total Precio: {Precio:C2}";
         }
 
         private void Estilodgv()

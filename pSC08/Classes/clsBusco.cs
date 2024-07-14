@@ -10,7 +10,11 @@ namespace pSC08
 {
     public class cnn
     {
-        public static string db = @"Data Source=DESKTOP-TFVTCNK\SQLEXPRESS; Initial Catalog=dbpractica04; integrated security = true";
+        public static string db = @"Data Source=REUDYS; 
+                                    Initial Catalog=DBpractica04; 
+                                    User ID=sa;
+                                    Password=reyballoon
+                                   ";
     }
 
     public class Busco
