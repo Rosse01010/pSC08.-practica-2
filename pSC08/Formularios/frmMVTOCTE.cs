@@ -18,7 +18,7 @@ namespace pSC08
         double Precio = 0;
 
         // Asegúrate de reemplazar esto con tu cadena de conexión real
-        private string connectionString = "Data Source=tu_servidor;Initial Catalog=tu_base_de_datos;Integrated Security=True";
+        private string connectionString = cnn.db;
 
         public frmMVTOCTE()
         {
